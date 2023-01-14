@@ -1,0 +1,30 @@
+<h1>Поиск</h1>
+<form action="/find" method="POST" class="course-form">
+  <div class="input-field">
+    <span>Запрос</span>
+    <input id="query" name="query" type="text" class="validate" />
+  </div>
+  <div class="input-field">
+    <span>Мой бренд</span>
+    <input id="myBrand" name="myBrand" type="text" class="validate" />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Поиск</button>
+</form>
+
+<h1>Бренды:</h1>
+<ol>
+{{#if brands.length}}
+  {{#each brands}}
+
+    {{#ifEqual name @root.myBrand}}
+      <li class="myBrand">{{name}}</li>
+    {{else}}
+      <li>{{name}}</li>
+    {{/ifEqual}}
+
+  {{/each}}
+{{else}}
+</ol>
+  <p>По вашему запросу ничего не найдено</p>
+{{/if}}
